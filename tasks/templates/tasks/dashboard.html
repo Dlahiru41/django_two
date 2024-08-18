@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager - Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <h2>Tasks due in the next 30 days</h2>
+    <canvas id="lineChart"></canvas>
+
+    <h2>Tasks by priority (next 30 days)</h2>
+    <canvas id="pieChart"></canvas>
+
+    <h2>Urgent tasks due in the next 30 days</h2>
+    <p>{{ urgent_tasks_count }}</p>
+
+    <h2>All tasks</h2>
+    <table>
+        <tr>
+            <th>Email</th>
+            <th>Task</th>
+            <th>Due By</th>
+            <th>Priority</th>
+            <th>Urgent</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task.user_email }}</td>
+            <td>{{ task.task }}</td>
+            <td>{{ task.due_by }}</td>
+            <td>{{ task.priority }}</td>
+            <td>{{ task.is_urgent }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <script>
+        // Add Chart.js code here for line chart and pie chart
+    </script>
+</body>
+</html>
